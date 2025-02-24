@@ -40,7 +40,9 @@ while (h <= 0)
 }
 
 int min_x = a;
+int max_x = b;
 double min_y = double.PositiveInfinity;
+double max_y = double.NegativeInfinity;
 
 Console.WriteLine("\nx\ty(x)");
 
@@ -65,8 +67,14 @@ for (int x = a; x <= b; x += h)
         min_y = y;
         min_x = x;
     }
+    if (y > max_y)
+    {
+        max_y = y;
+        max_x = x;
+    }
 }
 
 Console.WriteLine("\nКоличество точек: " + points);
 Console.WriteLine($"Минимальное значение функции y(x) = {min_y} при x = {min_x}");
+Console.WriteLine($"Максимальное значение функции y(x) = {max_y} при x = {max_x}");
 Console.WriteLine($"Количество изменений знака функции: {count_sign_changes}");
